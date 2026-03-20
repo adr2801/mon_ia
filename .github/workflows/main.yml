@@ -25,8 +25,7 @@ jobs:
 
       - name: Build APK
         run: |
-          flet build apk --project "Mon IA Priorisateur" --main App_android_prio.py
-        # Cette commande va créer le fichier .apk
+          flet build apk App_android_prio.py --project "Mon IA Priorisateur"
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
