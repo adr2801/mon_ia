@@ -25,9 +25,13 @@ jobs:
       - name: Pre-build Clean
         run: flutter doctor # Vérifie que tout est OK pour Android
 
+      - name: List files (Debug)
+        run: ls -R # Ceci affichera tous tes fichiers dans les logs si ça plante
+
       - name: Build APK
         run: |
-          flet build apk --project "mon_ia"
+          flet build apk . --main.py --project "mon_ia"
+
           
       - name: Upload APK
         uses: actions/upload-artifact@v4
