@@ -30,7 +30,7 @@ jobs:
 
       - name: Build APK
         run: |
-          flet build apk . --project "mon_ia" --main main.py
+          flet build apk . --"./IA_priorisateur"
 
           
       - name: Upload APK
