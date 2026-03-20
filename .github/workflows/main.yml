@@ -34,4 +34,3 @@ jobs:
         with:
           name: app-release
           path: build/apk/*.apk
-          path: build/apk/app-release.apk # Récupère le fichier final
