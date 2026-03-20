@@ -15,7 +15,7 @@ jobs:
           python-version: '3.14'
 
       - name: Install Flet
-        run: pip install flet numpy
+        run: pip install flet.cli numpy
 
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
@@ -27,7 +27,7 @@ jobs:
 
       - name: Build APK
         run: |
-          flet build apk --project "mon_ia"
+          flet.cli build apk --project "mon_ia"
           
       - name: Upload APK
         uses: actions/upload-artifact@v4
