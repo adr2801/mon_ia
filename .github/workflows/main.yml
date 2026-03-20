@@ -12,7 +12,7 @@ jobs:
       - name: Install Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.14'
+          python-version: '3.12'
 
       - name: Install Flet
         run: pip install flet.cli numpy
@@ -30,7 +30,7 @@ jobs:
 
       - name: Build APK
         run: |
-          flet build apk . --main.py --project "mon_ia"
+          flet build apk . --project "mon_ia"
 
           
       - name: Upload APK
