@@ -27,7 +27,7 @@ jobs:
 
       - name: Build APK
         run: |
-          flet.cli build apk --project "mon_ia"
+          flet build apk --project "mon_ia"
           
       - name: Upload APK
         uses: actions/upload-artifact@v4
