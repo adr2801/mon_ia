@@ -1,0 +1,35 @@
+name: Build Android APK
+on:
+  push:
+    branches: [ main ] # Se lance à chaque fois que tu mets à jour ton code
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10' # Une version stable pour la compilation
+
+      - name: Install Flet and Dependencies
+        run: |
+          pip install flet[all] numpy requests # Installe Flet et les outils de build
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+
+      - name: Build APK
+        run: |
+          flet build apk --project "Mon IA Priorisateur"
+        # Cette commande va créer le fichier .apk
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v3
+        with:
+          name: app-release
+          path: build/apk/app-release.apk # Récupère le fichier final
